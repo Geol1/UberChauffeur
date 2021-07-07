@@ -5,7 +5,7 @@ import UberTypeRow from './UberTypeRow';
 import typesData from '../assets/data/types';
 
 const UberTypes = ({ typeState, onSubmit }) => {
-  // const [selectedType, setSelectedType] = typeState;
+  const [selectedType, setSelectedType] = typeState;
 
   return (
     <View>
@@ -13,13 +13,13 @@ const UberTypes = ({ typeState, onSubmit }) => {
         <UberTypeRow
           type={type}
           key={type.id}
-          // isSelected={type.type === selectedType}
-          // onPress={() => setSelectedType(type.type)}
+          isSelected={type.type === selectedType}
+          onPress={() => setSelectedType(type.type)}
         />
       ))}
 
       <Pressable 
-      // onPress={onSubmit} 
+      onPress={onSubmit} 
       style={{
         backgroundColor: 'black',
         padding: 10,

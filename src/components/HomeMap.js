@@ -5,9 +5,9 @@ import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 // import { listCars } from '../../graphql/queries';
 
 import cars from '../assets/data/cars';
-
+const carss=cars
 const HomeMap = (props) => {
-  const [cars, setCars] = useState([]);
+  const [cars, setCars] = useState(carss);
 
   // useEffect(() => {
   //   const fetchCars = async () => {
@@ -43,10 +43,10 @@ const HomeMap = (props) => {
       provider={PROVIDER_GOOGLE}
       showsUserLocation={true}
       initialRegion={{
-        latitude: 28.450627,
-        longitude: -16.263045,
-        latitudeDelta: 0.0222,
-        longitudeDelta: 0.0121,
+        latitude: 3.866667,
+        longitude: 11.516667,
+        latitudeDelta: 0.222,
+        longitudeDelta: 0.121,
       }}>
       {cars.map((car) => (
         <Marker
@@ -55,8 +55,8 @@ const HomeMap = (props) => {
         >
           <Image
             style={{
-              width: 70,
-              height: 70,
+              width: 40,
+              height: 40,
               resizeMode: 'contain',
               transform: [{
                 rotate: `${car.heading}deg`

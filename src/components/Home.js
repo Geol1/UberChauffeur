@@ -12,7 +12,9 @@ import HistoriqueTransaction from '../explore/HistoriqueTransaction';
 import ProfilUser from "../profil_user/ProfilUser"
 import Destination from "../screens/Destination"
 import SearchResults from "../screens/SearchResults"
+import ProfilDrawer from "../navigations/ProfilDrawer"
 
+import Parametre from "../profil_user/Parametre"
 import stringsoflanguages from "../langue/screenString";
 
 
@@ -105,7 +107,7 @@ function secondScreenStack({ navigation }) {
 function thirdsScreenStack({ navigation }) {
   return (
     <Stack.Navigator
-      initialRouteName="ProfilUser"
+      initialRouteName="Parametre"
       screenOptions={{
         headerLeft: ()=>
           <NavigationDrawerStructure
@@ -120,10 +122,10 @@ function thirdsScreenStack({ navigation }) {
         }
       }}>
       <Stack.Screen
-        name="ProfilUser"
-        component={ProfilUser}
+        name="Parametre"
+        component={Parametre}
         options={{
-          title: stringsoflanguages.home.profilTitle, //Set Header Title
+          title: stringsoflanguages.home.setting, //Set Header Title
         }}/>
       <Stack.Screen
         name="HistoriqueTransaction"
@@ -142,7 +144,12 @@ function Home() {
         drawerContentOptions={{
           activeTintColor: '#000',
           itemStyle: { marginVertical: 5 },
-        }}>
+        }}
+        drawerContent={
+          (props) => (
+            <ProfilDrawer {...props} />)
+        }>
+
         <Drawer.Screen
           name={stringsoflanguages.home.dashboard}
           options={{ drawerLabel: stringsoflanguages.home.dashboardTitle }}
@@ -152,8 +159,8 @@ function Home() {
           options={{ drawerLabel: stringsoflanguages.home.transactionTitle }}
           component={secondScreenStack} />
         <Drawer.Screen
-          name={stringsoflanguages.home.profil}
-          options={{ drawerLabel: stringsoflanguages.home.profilTitle }}
+          name={stringsoflanguages.home.setting}
+          options={{ drawerLabel: stringsoflanguages.home.setting }}
           component={thirdsScreenStack} />
       </Drawer.Navigator>
     

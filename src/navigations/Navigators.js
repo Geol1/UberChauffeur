@@ -7,8 +7,10 @@ import CreateAccount from "../create_account/CreateAccount";
 import ForgotPassword from "../forgot_pass/ForgotPassword";
 // import Language from "../Language/Language"
 import Parametre from "../profil_user/Parametre"
+import OrderPage from "../screens/OrderPage";
 
 
+import ProfilUser from "../profil_user/ProfilUser"
 import stringsoflanguages from "../langue/screenString";
 
 
@@ -27,6 +29,8 @@ export default function Navigators() {
         <Stack.Screen options={{ title: stringsoflanguages.home.forgot }} name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen options={{headerShown: false}} name="Home" component={Home} />
         <Stack.Screen options={{ title: stringsoflanguages.home.setting }} name="Parametre" component={Parametre} />
+        <Stack.Screen options={{ title: stringsoflanguages.home.profilTitle }} name="ProfilUser" component={ProfilUser} />
+        <Stack.Screen options={{ title: stringsoflanguages.home.setting }} name="OrderPage" component={OrderPage} />
     </Stack.Navigator>
   );
 }

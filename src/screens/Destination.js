@@ -54,12 +54,12 @@ const DestinationSearch = (props) => {
           }}
           fetchDetails
           query={{
-            key: 'AIzaSyCMk_hCEpkLNxb7TYGaGXN39n017YDYOXU',
+            key: 'AIzaSyAyTzROc_wrO-16oCrvH07HLDXPMT9jigI',
             language: 'en',
           }}
           renderRow={(data) => <PlaceRow data={data} />}
-          renderDescription={(data) => data.description || data.vicinity}
-          predefinedPlaces={[homePlace, workPlace]}
+          // renderDescription={(data) => data.description || data.vicinity}
+          // predefinedPlaces={[homePlace, workPlace]}
         />
 
         <GooglePlacesAutocomplete
@@ -79,7 +79,7 @@ const DestinationSearch = (props) => {
           }}
           fetchDetails
           query={{
-            key: 'AIzaSyCMk_hCEpkLNxb7TYGaGXN39n017YDYOXU',
+            key: 'AIzaSyAyTzROc_wrO-16oCrvH07HLDXPMT9jigI',
             language: 'en',
           }}
           renderRow={(data) => <PlaceRow data={data} />}

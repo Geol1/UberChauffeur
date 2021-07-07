@@ -11,7 +11,7 @@ const HomeSearch = (props) => {
   const navigation = useNavigation();
 
   const goToSearch = () => {
-    navigation.navigate('SearchResults')
+    navigation.navigate('Destination')
   }
 
   return (
