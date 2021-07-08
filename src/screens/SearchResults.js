@@ -6,6 +6,7 @@ import UberTypes from "../components/UberTypes";
 import HomeMap from '../components/HomeMap';
 // import { createOrder } from '../../graphql/mutations';
 
+import Message from '../components/Message';
 import { useRoute, useNavigation } from '@react-navigation/native';
 
 const SearchResults = (props) => {
@@ -61,13 +62,14 @@ const SearchResults = (props) => {
 
   return (
     <View style={{display: 'flex', justifyContent: 'space-between'}}>
-      <View style={{height: Dimensions.get('window').height - 500}}>
+      <View style={{height: Dimensions.get('window').height - 300}}>
           {/* <HomeMap/> */}
         <RouteMap origin={originPlace} destination={destinationPlace} />
         {/* <RouteMap /> */}
       </View>
 
-      <View style={{height: 400}}>
+      {/* <Message /> */}
+      <View style={{height: 220}}>
           {/* <UberTypes/> */}
         <UberTypes typeState={typeState} onSubmit={onSubmit} />
       </View>

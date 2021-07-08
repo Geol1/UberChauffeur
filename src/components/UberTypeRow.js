@@ -40,7 +40,7 @@ const UberTypeRow = (props) => {
       </View>
       <View style={styles.rightContainer}>
         <Ionicons name={'pricetag'} size={18} color={'#42d742'} />
-        <Text style={styles.price}>est. ${type.price}</Text>
+        <Text style={styles.price}> {type.price} FCFA</Text>
       </View>
     </Pressable>
   );

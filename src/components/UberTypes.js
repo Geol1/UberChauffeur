@@ -1,14 +1,16 @@
 import React from "react";
 import { View, Text, Pressable } from "react-native";
 import UberTypeRow from './UberTypeRow';
-
+import { ScrollView, VStack, Center, NativeBaseProvider } from "native-base"
 import typesData from '../assets/data/types';
 
 const UberTypes = ({ typeState, onSubmit }) => {
   const [selectedType, setSelectedType] = typeState;
 
   return (
-    <View>
+    <NativeBaseProvider>
+      <ScrollView >
+      <View>
       {typesData.map((type) => (
         <UberTypeRow
           type={type}
@@ -32,6 +34,8 @@ const UberTypes = ({ typeState, onSubmit }) => {
         </Text>
       </Pressable>
     </View>
+      </ScrollView>
+    </NativeBaseProvider>
   );
 };
 

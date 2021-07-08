@@ -6,6 +6,7 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Entypo from "react-native-vector-icons/Entypo";
 import {useNavigation} from '@react-navigation/native'
 
+import { ScrollView, VStack, Center, NativeBaseProvider } from "native-base"
 
 const HomeSearch = (props) => {
   const navigation = useNavigation();
@@ -15,7 +16,9 @@ const HomeSearch = (props) => {
   }
 
   return (
-    <View>
+    <NativeBaseProvider>
+      <ScrollView >
+      <View>
       {/*  Input Box */}
       <Pressable onPress={goToSearch} style={styles.inputBox}>
         <Text style={styles.inputText}>Where To?</Text>
@@ -42,7 +45,10 @@ const HomeSearch = (props) => {
         </View>
         <Text style={styles.destinationText}>Spin Nightclub</Text>
       </View>
+      
     </View>
+    </ScrollView>
+    </NativeBaseProvider>
   );
 };
 

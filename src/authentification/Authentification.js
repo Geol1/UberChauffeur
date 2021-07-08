@@ -1,10 +1,23 @@
 import React , {useState,useEffect} from 'react';
-import {NativeBaseProvider,Box,Text,Heading,VStack,FormControl,Input,Link,Button,Icon,IconButton,HStack,Divider } from 'native-base';
+import {NativeBaseProvider, Center,useToast,Box,Text,Heading,VStack,FormControl,Input,Link,Button,Icon,IconButton,HStack,Divider } from 'native-base';
+import { View, StyleSheet, ToastAndroid, StatusBar } from "react-native";
 import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 import stringsoflanguages from "../langue/screenString";
 
+const Toast = ({ visible, message }) => {
+  if (visible) {
+    ToastAndroid.showWithGravityAndOffset(
+      message,
+      ToastAndroid.LONG,
+      ToastAndroid.BOTTOM,
+      25,
+      50
+    );
+    return null;
+  }
+  return null;
+};
 export default function Authentification({route, navigation }) {
   const [formData, setData] = React.useState({});
   const [errors, setErrors] = React.useState({});
@@ -23,13 +36,14 @@ export default function Authentification({route, navigation }) {
     return true;
   };
 
-  const save= ()=>{
+  const login= ()=>{
     console.log(formData);
     auth()
     .signInWithEmailAndPassword(formData.email, formData.password)
     .then((result) => {
       if(result.user.emailVerified){ 
         navigation.navigate('Home'); 
+        handleButtonPress("Authentification success :)")
         add(result.user.uid)
         setId(result.user.uid)}
       else alert("Allez verifier vos mailsvotre email n'as pas ete activer")
@@ -37,11 +51,11 @@ export default function Authentification({route, navigation }) {
   })
   .catch(error => {
     if (error.code === 'auth/email-already-in-use') {
-      console.log('That email address is already in use!');
+      handleButtonPress('That email address is already in use!');
     }
 
     if (error.code === 'auth/invalid-email') {
-      console.log('That email address is invalid!');
+      handleButtonPress('That email address is invalid!');
     }
 
     console.error(error);
@@ -71,12 +85,24 @@ export default function Authentification({route, navigation }) {
     }  catch (e){console.error(e);}
   }
   useEffect(() => getLang().then(getStatut()),[]);
+  const [visibleToast, setvisibleToast] = useState(false);
+  const [toastM,setToastM]=useState("youpi")
+  useEffect(() => setvisibleToast(false), [visibleToast]);
+
+  const handleButtonPress = (message) => {
+    setToastM(message)
+    setvisibleToast(true);
+  };
   // useEffect(() => getLang().then(getStatut()),[langue]);
   const onSubmit = () => {
-    validate() ? save() : alert("validation failled");
+    validate() ? login() : alert("validation failled");
   };
  return (
       <NativeBaseProvider>
+         <View >
+      <Toast visible={visibleToast} message={toastM} />
+    </View>
+        <Toast />
       <Box flex={1} p={2} w="90%" mx='auto' >
         <Heading size="lg" color='primary.500'>{stringsoflanguages.authentification.title} </Heading>
         <Heading color="muted.400" size="xs">{stringsoflanguages.authentification.subtitle}</Heading>
@@ -102,7 +128,7 @@ export default function Authentification({route, navigation }) {
          
 
             <Link _text={{ fontSize: 'xs', fontWeight: '700', color:'cyan.500' }} alignSelf="flex-end" mt={1}
-              onPress={ () => navigation.navigate('ForgotPassword') }>
+              onPress={ () => {navigation.navigate('ForgotPassword'),handleButtonPress("Entrer votre address mail")} }>
               {stringsoflanguages.authentification.oublie}
             </Link>
           </FormControl>
@@ -118,13 +144,17 @@ export default function Authentification({route, navigation }) {
             <Text fontSize='sm' color='muted.700' fontWeight={400}>{stringsoflanguages.authentification.text1} </Text>
             <Link _text={{ color: 'cyan.500', bold: true, fontSize: 'sm' }}
             onPress={
-              () => navigation.navigate('CreateAccount')
+              () =>{ navigation.navigate('CreateAccount'),handleButtonPress("Bien vouloir remplir le formulaire")}
             }>
               {stringsoflanguages.authentification.newAccount}  😊
             </Link>
           </HStack>
         </VStack>
-      <Button onPress={() => {navigation.navigate('Home') }} > Home</Button>
+        <Center>
+      <Button   onPress={
+              () => {navigation.navigate('Home'),handleButtonPress("nccavigation suuccess")}
+            }> Home</Button>
+            </Center>
       </Box>
 
     </NativeBaseProvider>

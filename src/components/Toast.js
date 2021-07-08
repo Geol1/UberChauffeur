@@ -19,6 +19,7 @@ export const Example = () => {
             status: "info",
             description:
               "This is to inform you that your network connectivity is restored",
+              placement: "top",
           })
         }>
         Info
@@ -30,10 +31,8 @@ export const Example = () => {
 
 export default () => {
   return (
-    <NativeBaseProvider>
-      <Center flex={1}>
+      <Center>
         <Example />
       </Center>
-    </NativeBaseProvider>
   )
 }

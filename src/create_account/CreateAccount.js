@@ -6,7 +6,20 @@ import firestore from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
 
 import stringsoflanguages from "../langue/screenString";
-
+import { ToastAndroid } from "react-native";
+const Toast = ({ visible, message }) => {
+  if (visible) {
+    ToastAndroid.showWithGravityAndOffset(
+      message,
+      ToastAndroid.LONG,
+      ToastAndroid.BOTTOM,
+      25,
+      50
+    );
+    return null;
+  }
+  return null;
+};
 export default function CreateAccount({navigation}) {
 
   const [formData, setData] = React.useState({});
@@ -24,13 +37,13 @@ export default function CreateAccount({navigation}) {
     return true;
   };
 
-  const save=()=>{
+  const Create=()=>{
     console.log(formData);
     auth()
   .createUserWithEmailAndPassword(formData.email, formData.password)
   .then((resp) => {
       resp.user.sendEmailVerification();
-      console.log("okjn");
+      handleButtonPress("Authentification success :)")
       var IdCreation=resp.user.uid;
       console.log(IdCreation);
       const fileStoragePath = "ImageUserProfil/"+resp.user.uid;
@@ -54,27 +67,37 @@ export default function CreateAccount({navigation}) {
         listeChauffeur: ""
       })
       navigation.navigate('Authentification')
-    console.log('User account created & signed in!');
+      handleButtonPress('User account created & signed in!');
   })
   .catch(error => {
     if (error.code === 'auth/email-already-in-use') {
-      console.log('That email address is already in use!');
+      handleButtonPress('That email address is already in use!');
     }
 
     if (error.code === 'auth/invalid-email') {
-      console.log('That email address is invalid!');
+      handleButtonPress('That email address is invalid!');
     }
-
-    console.error(error);
+    handleButtonPress(error.code)
+    // console.error(error);
   });
   }
 
+  const [visibleToast, setvisibleToast] = useState(false);
+  const [toastM,setToastM]=useState("youpi")
+  useEffect(() => setvisibleToast(false), [visibleToast]);
+
+  const handleButtonPress = (message) => {
+    setToastM(message)
+    setvisibleToast(true);
+  };
+
   const onSubmit = () => {
-    validate() ? save() : console.log("validation failled");
+    validate() ? Create() : handleButtonPress("validation failled");
   };
 
  return (
       <NativeBaseProvider>
+        <Toast visible={visibleToast} message={toastM} />
         <Avatar
         setImg={setImg}
         Img={Img}/>

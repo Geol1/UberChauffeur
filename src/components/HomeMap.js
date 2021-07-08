@@ -4,6 +4,7 @@ import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 // import {API, graphqlOperation} from 'aws-amplify';
 // import { listCars } from '../../graphql/queries';
 
+import {NativeBaseProvider,Button,Icon} from 'native-base';
 import cars from '../assets/data/cars';
 const carss=cars
 const HomeMap = (props) => {
@@ -55,8 +56,8 @@ const HomeMap = (props) => {
         >
           <Image
             style={{
-              width: 40,
-              height: 40,
+              width: 5,
+              height: 5,
               resizeMode: 'contain',
               transform: [{
                 rotate: `${car.heading}deg`
@@ -66,6 +67,7 @@ const HomeMap = (props) => {
           />
         </Marker>
       ))}
+     
     </MapView>
   );
 };

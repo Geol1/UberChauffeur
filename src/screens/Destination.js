@@ -104,6 +104,7 @@ export default DestinationSearch;
 
 const styles = StyleSheet.create({
   container: {
+    marginTop:20,
     padding: 10,
     height: '100%',
   },
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
   circle: {
     width: 5,
     height: 5,
-    backgroundColor: 'black',
+    backgroundColor: '#22d3ee',
     position: 'absolute',
     top: 20,
     left: 15,
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
   line: {
     width: 1,
     height: 50,
-    backgroundColor: '#c4c4c4',
+    backgroundColor: '#22d3ee',
     position: 'absolute',
     top: 28,
     left: 17,
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
   square: {
     width: 5,
     height: 5,
-    backgroundColor: 'black',
+    backgroundColor: '#22d3ee',
     position: 'absolute',
     top: 80,
     left: 15,
