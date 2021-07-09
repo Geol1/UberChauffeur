@@ -70,9 +70,6 @@ useEffect(() => CurrentUser(),[id]);
 
       <DrawerItemList {...props} />
 
-      <Pressable onPress={() => { Auth.signOut() }}>
-        <Text style={{padding: 5, paddingLeft: 20}}>Logout</Text>
-      </Pressable>
     </DrawerContentScrollView>
   );
 };
