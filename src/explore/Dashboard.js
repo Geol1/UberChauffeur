@@ -6,7 +6,7 @@ const FirstPage = ({ navigation }) => {
   return (
 
     <View>
-      <View style={{height: Dimensions.get('window').height - 100}}>
+      <View style={{height: Dimensions.get('window').height - 60}}>
         <HomeMap />
       </View>
     </View>

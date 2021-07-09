@@ -151,9 +151,7 @@ export default function Authentification({route, navigation }) {
           </HStack>
         </VStack>
         <Center>
-      <Button   onPress={
-              () => {navigation.navigate('Home'),handleButtonPress("nccavigation suuccess")}
-            }> Home</Button>
+      {/* <Button onPress={() => {navigation.navigate('Home'),handleButtonPress("nccavigation suuccess")}}> Home</Button> */}
             </Center>
       </Box>
 

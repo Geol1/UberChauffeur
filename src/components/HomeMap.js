@@ -104,12 +104,12 @@ const HomeMap = (props) => {
       </Marker> */}
 
     </MapView>
-    <TouchableOpacity
+    {/* <TouchableOpacity
           activeOpacity={0.8}
           onPress={goToSearch}
           style={styles.touchableOpacityStyle}>
          <Ionicons name={'walk-sharp'} size={46} style={styles.floatingButtonStyle}/>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <TouchableOpacity
           activeOpacity={0.8}
           onPress={()=> setSearch(!search)}
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     // right: 1,
-    bottom: 28,
+    // bottom: 1,
   },
   floatingButtonStyle: {
     resizeMode: 'contain',

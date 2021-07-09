@@ -18,27 +18,12 @@ const SecondPage = ({ navigation }) => {
         <Button colorScheme="dark" mr={2} onPress={()=>{navigation.navigate('ListeVehicule')}}>Afficher la liste des vehicules</Button>
       </Button.Group>
       <Button.Group variant="solid" isAttached space={6} mx={{ base: "auto", md: 0, }} mt={5}>
-      <Button  onPress={() => setShow(true)} colorScheme="teal" _text={{ color: "white" }} 
+      <Button  onPress={() =>{ console.log("pas encore fais")}} colorScheme="teal" _text={{ color: "white" }} 
               endIcon={<Icon as={Ionicons} name="power" size={4} />}>Activer un vehicule</Button>
       </Button.Group>
-              
-              
-      <View style={{ padding: 16 }}>
-        <View
-          style={{
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-         
-          <Button
-            title="Historique"
-            onPress={
-              () => navigation.navigate('HistoriqueTransaction')
-            }
-          />
-        </View>
-      </View>
+      <Button.Group variant="solid" isAttached space={6} mx={{ base: "auto", md: 0, }} mt={5}>
+      <Button  onPress={   () => navigation.navigate('HistoriqueTransaction') }> Historique de Transaction</Button>
+      </Button.Group>
       </NativeBaseProvider>
     </SafeAreaView>
   );

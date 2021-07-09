@@ -20,7 +20,7 @@ const ThirdPage = ({ route, navigation }) => {
             onPress={
               () => navigation.navigate('Dashboard')
             }
-            title="HistoriqueTransaction"
+            title="Acceder a la carte"
           />
           <Button
             onPress={
