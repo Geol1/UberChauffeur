@@ -8,11 +8,11 @@ import ForgotPassword from "../forgot_pass/ForgotPassword";
 // import Language from "../Language/Language"
 import Parametre from "../profil_user/Parametre"
 import OrderPage from "../screens/OrderPage";
-
-
+import AddNewVehicule from "../screens/AddNewVehicule"
+import ListeVehicule from "../screens/ListeVehicule"
 import ProfilUser from "../profil_user/ProfilUser"
 import stringsoflanguages from "../langue/screenString";
-
+import MySearch from "../screens/MySearch"
 
 const Stack = createStackNavigator();
 
@@ -31,6 +31,9 @@ export default function Navigators() {
         <Stack.Screen options={{ title: stringsoflanguages.home.setting }} name="Parametre" component={Parametre} />
         <Stack.Screen options={{ title: stringsoflanguages.home.profilTitle }} name="ProfilUser" component={ProfilUser} />
         <Stack.Screen options={{ title: stringsoflanguages.home.setting }} name="OrderPage" component={OrderPage} />
+        <Stack.Screen name="AddNewVehicule" component={AddNewVehicule} options={{   title: "Add A New Vehicule", }}/>
+        <Stack.Screen name="ListeVehicule" component={ListeVehicule} options={{ title: "Add A New Vehicule", }}/>
+        <Stack.Screen name="MySearch" component={MySearch}/>
     </Stack.Navigator>
   );
 }
