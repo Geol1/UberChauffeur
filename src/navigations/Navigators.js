@@ -14,6 +14,9 @@ import ProfilUser from "../profil_user/ProfilUser"
 import stringsoflanguages from "../langue/screenString";
 import MySearch from "../screens/MySearch"
 
+import CreationChauffeur from "../create_account/CreationChauffeur"
+import ListeChauffeur from "../screens/ListeChauffeur"
+
 const Stack = createStackNavigator();
 
 export default function Navigators() {
@@ -33,6 +36,8 @@ export default function Navigators() {
         <Stack.Screen options={{ title: stringsoflanguages.home.setting }} name="OrderPage" component={OrderPage} />
         <Stack.Screen name="AddNewVehicule" component={AddNewVehicule} options={{   title: "Add A New Vehicule", }}/>
         <Stack.Screen name="ListeVehicule" component={ListeVehicule} options={{ title: "Add A New Vehicule", }}/>
+        <Stack.Screen name="CreationChauffeur" component={CreationChauffeur} options={{ title: "Creer un Client", }}/>
+        <Stack.Screen name="ListeChauffeur" component={ListeChauffeur} options={{ title: "Liste des Clients", }}/>
         <Stack.Screen name="MySearch" component={MySearch}/>
     </Stack.Navigator>
   );

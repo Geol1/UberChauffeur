@@ -14,6 +14,8 @@ import Destination from "../screens/Destination"
 import SearchResults from "../screens/SearchResults"
 import AddNewVehicule from "../screens/AddNewVehicule"
 import ProfilDrawer from "../navigations/ProfilDrawer"
+import CreationChauffeur from "../create_account/CreationChauffeur"
+import ListeChauffeur from "../screens/ListeChauffeur"
 
 import Parametre from "../profil_user/Parametre"
 import stringsoflanguages from "../langue/screenString";
@@ -134,11 +136,23 @@ function thirdsScreenStack({ navigation }) {
         options={{
           title: stringsoflanguages.home.setting, //Set Header Title
         }}/>
-      <Stack.Screen
-        name="HistoriqueTransaction"
+        <Stack.Screen
+        name={stringsoflanguages.home.historique}
         component={HistoriqueTransaction}
         options={{
-          title:  stringsoflanguages.home.historiqueTitle, //Set Header Title
+          title: "Mon profile Cleint", //Set Header Title
+        }}/>
+      <Stack.Screen
+        name="CreationChauffeur"
+        component={CreationChauffeur}
+        options={{
+          title: "Creer une Client", //Set Header Title
+        }}/>
+      <Stack.Screen
+        name="ListeChauffeur"
+        component={ListeChauffeur}
+        options={{
+          title: "Liste des Clients", //Set Header Title
         }}/>
     </Stack.Navigator>
   );

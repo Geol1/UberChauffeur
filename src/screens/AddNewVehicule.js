@@ -118,7 +118,7 @@ export default function CreateAccount({navigation}) {
                 }
             </FormControl>
 
-          <Button isLoading  onPress={onSubmit} mt={5} colorScheme="cyan" _text={{color: 'black' }}>Add New Vehicule</Button>
+          <Button  onPress={onSubmit} mt={5} colorScheme="cyan" _text={{color: 'black' }}>Add New Vehicule</Button>
           
           <Heading size="lg" pt="20" >
             Le Vehicule de l'heure

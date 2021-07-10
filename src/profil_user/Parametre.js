@@ -27,9 +27,6 @@ export default class Parametre extends Component {
             {shortform: "en", longform: stringsoflanguages.params.en},
             {shortform: "fr", longform: stringsoflanguages.params.fr}
         ];
-       
-       
-        // toast = useToast();
         global.lang=lang;
     }
    
@@ -37,20 +34,15 @@ export default class Parametre extends Component {
         this.handleButtonPress(value)
         AsyncStorage.setItem('lang',value)
         stringsoflanguages.setLanguage(value);
-        // this.props.children.getLang()
-        this.props.navigation.navigate("Authentification", {langue:value})
+        this.props.navigation.navigate("Home", {langue:value})
     }
     state={
         visibleToast: false,
         toastM:"youpi"
     }
-
-    // const [visibleToast, setvisibleToast] = useState(false);
-    //   const [toastM,setToastM]=useState("youpi")
     componentDidMount(){
         this.setState({visibleToast: false})
     }
-    //   useEffect(() => setvisibleToast(false), [visibleToast]);
 
     handleButtonPress = (message) => {
         this.setState({visibleToast: false,toastM:message})
